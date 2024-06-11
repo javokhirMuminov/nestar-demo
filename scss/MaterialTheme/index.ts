@@ -1,306 +1,67 @@
-import { common } from '@mui/material/colors';
-import shadow from './shadow';
-import typography from './typography';
+import { ThemeOptions, createTheme } from "@mui/material/styles";
 
-/**
- * LIGHT THEME (DEFAULT)
- */
-export const light = {
-	palette: {
-		type: 'light',
-		background: {
-			default: '#f4f6f8',
-			paper: common.white,
-		},
-		primary: {
-			contrastText: '#ffffff',
-			main: '#E92C28',
-		},
-		secondary: {
-			main: '#1646C1',
-		},
-		text: {
-			primary: '#212121',
-			secondary: '#616161',
-			dark: common.black,
-		},
-	},
-	components: {
-		MuiTypography: {
-			styleOverrides: {
-				root: {
-					letterSpacing: '0',
-				},
-			},
-			defaultProps: {
-				variantMapping: {
-					h1: 'h1',
-					h2: 'h2',
-					h3: 'h3',
-					h4: 'h4',
-					h5: 'h5',
-					h6: 'h6',
-					subtitle1: 'p',
-					subtitle2: 'p',
-					subtitle3: 'p',
-					body1: 'p',
-					body2: 'p',
-				},
-			},
-		},
-		MuiLink: {
-			styleOverrides: {
-				root: {
-					color: '#757575',
-					textDecoration: 'none',
-				},
-			},
-		},
-		MuiDivider: {
-			styleOverrides: {
-				root: {
-					borderColor: '#eee',
-				},
-			},
-		},
-		MuiBox: {
-			styleOverrides: {
-				root: {
-					padding: '0',
-				},
-			},
-			makeStyles: {
-				root: {
-					padding: 0,
-				},
-			},
-			sx: {
-				'&.MuiBox-root': {
-					component: 'div',
-				},
-			},
-		},
-		MuiContainer: {
-			styleOverrides: {
-				root: {
-					maxWidth: 'inherit',
-					padding: '0',
-					'@media (min-width: 600px)': {
-						paddingLeft: 0,
-						paddingRight: 0,
-					},
-				},
-			},
-		},
-		MuiCssBaseline: {
-			styleOverrides: {
-				html: { height: '100%' },
-				body: { background: '#fff', height: '100%', minHeight: '100%' },
-				p: {
-					margin: '0',
-				},
-			},
-		},
-		MuiAvatar: {
-			styleOverrides: {
-				root: {
-					marginLeft: '0',
-				},
-			},
-		},
-		MuiButton: {
-			styleOverrides: {
-				root: {
-					color: '#212121',
-					minWidth: 'auto',
-					lineHeight: '1.2',
-					boxShadow: 'none',
-					ButtonText: {
-						color: '#212121',
-					},
-				},
-			},
-		},
-		MuiIconButton: {
-			styleOverrides: {
-				root: {},
-			},
-		},
-		MuiListItemButton: {
-			styleOverrides: {
-				root: {
-					padding: '0',
-				},
-			},
-		},
-		MuiList: {
-			styleOverrides: {
-				root: {
-					padding: '0',
-				},
-			},
-		},
-		MuiListItem: {
-			styleOverrides: {
-				root: {
-					MuiSelect: {
-						backgroundColor: '#fafafa',
-					},
-					padding: '0',
-				},
-			},
-		},
-		MuiFormControl: {
-			styleOverrides: {
-				root: {
-					width: '100%',
-				},
-			},
-		},
-		MuiFormControlLabel: {
-			styleOverrides: {
-				root: {
-					marginRight: '0',
-				},
-			},
-		},
-		MuiSelect: {
-			styleOverrides: {
-				root: {},
-				select: {
-					textAlign: 'left',
-				},
-			},
-		},
-		MuiInputBase: {
-			styleOverrides: {
-				root: {
-					input: {},
-				},
-			},
-		},
-		MuiOutlinedInput: {
-			styleOverrides: {
-				root: {
-					height: '48px',
-					width: '100%',
-					backgroundColor: '#fff',
-					input: {},
-				},
-				notchedOutline: {
-					padding: '8px',
-					top: '-9px',
-					border: '1px solid #eee',
-				},
-			},
-		},
-		MuiFormHelperText: {
-			styleOverrides: {
-				root: {
-					margin: '5px 0 0 2px',
-					lineHeight: '1.2',
-				},
-			},
-		},
-		MuiStepper: {
-			styleOverrides: {
-				root: {
-					alignItems: 'center',
-				},
-			},
-		},
-		MuiTabPanel: {
-			styleOverrides: {
-				root: {
-					padding: '0',
-				},
-			},
-		},
-		MuiSvgIcon: {
-			styleOverrides: {
-				root: {},
-			},
-		},
-		MuiStepIcon: {
-			styleOverrides: {
-				root: {
-					color: '#fff',
-					borderRadius: '50%',
-					border: '1px solid #eee',
-				},
-				text: {
-					fill: '#bdbdbd',
-				},
-			},
-		},
-		MuiStepConnector: {
-			styleOverrides: {
-				line: {
-					borderColor: '#eee',
-				},
-			},
-		},
-		MuiStepLabel: {
-			styleOverrides: {
-				label: {
-					fontSize: '14px',
-				},
-			},
-		},
-		MuiCheckbox: {
-			styleOverrides: {
-				root: {
-					'&.Mui-checked': {
-						color: 'black',
-					},
-				},
-			},
-		},
-		MuiFab: {
-			styleOverrides: {
-				root: {
-					width: '40px',
-					height: '40px',
-					background: '#fff',
-					color: '#212121',
-				},
-				hover: {
-					background: '#fff',
-				},
-			},
-		},
-		MuiPaper: {
-			styleOverrides: {
-				root: {
-					MuiMenu: {
-						boxShadow: 'rgb(145 158 171 / 24%) 0px 0px 2px 0px, rgb(145 158 171 / 24%) -20px 20px 40px -4px',
-					},
-				},
-			},
-		},
-		MuiMenuItem: {
-			styleOverrides: {
-				root: {
-					padding: '6px 8px',
-				},
-			},
-		},
-		MuiAlert: {
-			styleOverrides: {
-				root: {
-					boxShadow: 'none',
-				},
-			},
-		},
-		MuiChip: {
-			styleOverrides: {
-				root: {
-					border: '1px solid #ddd',
-					color: '#212121',
-				},
-			},
-		},
-	},
-	shadow,
-	typography,
+export const light: ThemeOptions = {
+  palette: {
+    mode: "light",
+    background: {
+      default: "#f5f5f5",
+      paper: "#fff",
+    },
+    primary: {
+      contrastText: "#fff",
+      main: "#1976d2",
+    },
+    secondary: {
+      main: "#ff4081",
+    },
+    text: {
+      primary: "#000",
+      secondary: "#757575",
+    },
+  },
+  components: {
+    MuiSelect: {
+      styleOverrides: {
+        select: {
+          textAlign: "left",
+        },
+      },
+    },
+  },
+  shadows: [
+    "none",
+    "0px 1px 3px rgba(0, 0, 0, 0.2)",
+    "0px 1px 5px rgba(0, 0, 0, 0.14)",
+    "0px 1px 8px rgba(0, 0, 0, 0.12)",
+    "0px 2px 4px rgba(0, 0, 0, 0.2)",
+    "0px 3px 5px rgba(0, 0, 0, 0.14)",
+    "0px 3px 8px rgba(0, 0, 0, 0.12)",
+    "0px 4px 6px rgba(0, 0, 0, 0.2)",
+    "0px 5px 7px rgba(0, 0, 0, 0.14)",
+    "0px 5px 10px rgba(0, 0, 0, 0.12)",
+    "0px 6px 8px rgba(0, 0, 0, 0.2)",
+    "0px 7px 9px rgba(0, 0, 0, 0.14)",
+    "0px 7px 12px rgba(0, 0, 0, 0.12)",
+    "0px 8px 10px rgba(0, 0, 0, 0.2)",
+    "0px 9px 11px rgba(0, 0, 0, 0.14)",
+    "0px 9px 14px rgba(0, 0, 0, 0.12)",
+    "0px 10px 12px rgba(0, 0, 0, 0.2)",
+    "0px 11px 13px rgba(0, 0, 0, 0.14)",
+    "0px 11px 16px rgba(0, 0, 0, 0.12)",
+    "0px 12px 14px rgba(0, 0, 0, 0.2)",
+    "0px 13px 15px rgba(0, 0, 0, 0.14)",
+    "0px 13px 18px rgba(0, 0, 0, 0.12)",
+    "0px 14px 16px rgba(0, 0, 0, 0.2)",
+    "0px 15px 17px rgba(0, 0, 0, 0.14)",
+    "0px 15px 20px rgba(0, 0, 0, 0.12)"
+  ],
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontSize: 14,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+  },
 };
+
+export default createTheme(light);

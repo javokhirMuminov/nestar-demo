@@ -1,5 +1,7 @@
+import withLayoutBasic from "@/libs/components/layout/LayoutBasic";
+
 const PropertyDetail = () => {
   return <div>PROPERTY DETAIL</div>;
 };
 
-export default PropertyDetail;
+export default withLayoutBasic( PropertyDetail);
