@@ -6,14 +6,14 @@ const  Home: NextPage = () => {
   return (
 
 
-     <Container>
+     <Stack>
         <Stack flexDirection={"column"}>
-          <Box>Popular Properties</Box>
+          <Stack className="container">Popular Properties</Stack>
           <Box>Top Agents</Box>
           <Box>Top Properties</Box>
           <Box>Events</Box>
         </Stack>
-     </Container>
+     </Stack>
 
   )
 };
