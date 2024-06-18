@@ -6,9 +6,13 @@ import HeaderFilter from "../homepage/HeaderFilter";
 import { Box } from "@mui/material";
 import  WebsIcon  from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
+import useDeviceDetect from "../hooks/useDeviceDetect";
 
 const withLayoutMain = (Component: any) => {
   return (props: any) => {
+    const device = useDeviceDetect();
+
+    if (device === "mobile") {
     return (
       <>
      <Head>
@@ -34,7 +38,7 @@ const withLayoutMain = (Component: any) => {
     </Stack>
     </>
     )
-
+    }
   };
 
 

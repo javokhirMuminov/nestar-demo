@@ -2,10 +2,14 @@ import { Stack } from "@mui/material"
 import  Head  from "next/head"
 import Footer from "../Footer";
 import Top from "../Top";
+import useDeviceDetect from "../hooks/useDeviceDetect";
 
 
 const withLayoutBasic = (Component: any) => {
   return (props: any) => {
+    const device = useDeviceDetect();
+
+    if (device === "mobile") {
     return (
     <>
      <Head>
@@ -41,7 +45,7 @@ const withLayoutBasic = (Component: any) => {
 
   };
 
-
+}
 };
 
 

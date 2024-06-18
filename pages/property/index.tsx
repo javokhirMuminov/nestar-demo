@@ -5,11 +5,15 @@ import { useState } from "react";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 import PropertyCard from "@/libs/components/property/PropertyCard";
 import Filter from "@/libs/components/property/Filter";
+import useDeviceDetect from "@/libs/components/hooks/useDeviceDetect";
 
 const PropertyList: NextPage = () => {
   const [properties, setProperties] = useState<number[]>([1, 2, 3, 4, 5, 6]);
+  const device = useDeviceDetect();
 
-
+  if (device === "mobile") {
+    return <Stack>PROPERTYLIST MOBILE</Stack>;
+  } else {
     return (
       <div id="property-list-page" style={{ position: "relative" }}>
         <Stack className="container">
@@ -49,5 +53,5 @@ const PropertyList: NextPage = () => {
       </div>
     );
   }
-
+}
 export default withLayoutBasic(PropertyList);
