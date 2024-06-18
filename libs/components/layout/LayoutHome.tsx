@@ -3,7 +3,9 @@ import  Head  from "next/head"
 import Top from "../Top";
 import Footer from "../Footer";
 import HeaderFilter from "../homepage/HeaderFilter";
-
+import { Box } from "@mui/material";
+import  WebsIcon  from "@mui/icons-material/West";
+import EastIcon from "@mui/icons-material/East";
 
 const withLayoutMain = (Component: any) => {
   return (props: any) => {
