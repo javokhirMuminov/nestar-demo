@@ -12,9 +12,32 @@ import TrendProperties from "@/libs/components/homepage/TrendProperties";
 import TopProperties from "@/libs/components/homepage/TopProperties";
 import useDeviceDetect from "@/libs/components/hooks/useDeviceDetect";
 import { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { GET_PROPERTIES } from "@/apollo/user/query";
 const  Home: NextPage = () => {
    const [properties, setProperties] = useState<number[]>([1, 2, 3, 4, 5, 6]);
    const device = useDeviceDetect();
+
+
+   const {
+      loading: getPropertiesLoading,
+      data: getPropertiesData,
+      error: getPropertiesError,
+      refetch: getPropertiesRefetch,
+    } = useQuery(GET_PROPERTIES, {
+      fetchPolicy: "network-only",
+      variables: {
+        input: {
+          page: 1,
+          limit: 5,
+          sort: "createdAt",
+          direction: "DESC",
+          search: {},
+        },
+      },
+    });
+
+    console.log("getPropertiesData: ", getPropertiesData);
 
    if (device === "mobile") {
      return <Stack>PropertyList MOBILE</Stack>;
